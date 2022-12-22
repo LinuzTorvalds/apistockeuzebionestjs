@@ -13,12 +13,22 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/index",
-    "lint": "eslint eslint --fix --ext .ts .",
+    "lint": "eslint --fix --ext .ts .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "vitest --config ./test/jest-e2e.json"
+  },
+  "lint-staged": {
+    "*.json": [
+      "pnpm format",
+      "pnpm lint"
+    ],
+    "*.ts*": [
+      "pnpm format",
+      "pnpm lint"
+    ]
   },
   "dependencies": {
     "@nestjs/common": "^9.2.1",
@@ -43,8 +53,8 @@
     "@types/jest": "28.1.8",
     "@types/node": "^16.0.0",
     "@types/supertest": "^2.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -78,15 +88,5 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "lint-staged": {
-    "*.json": [
-      "yarn format",
-      "yarn lint"
-    ],
-    "*.ts*": [
-      "yarn format",
-      "yarn lint"
-    ]
   }
 }
