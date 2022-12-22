@@ -7,7 +7,8 @@ export class RetrieveUserService {
 
   async retrieve() {
     const response = await this.prisma.user
-      .findMany().finally(async () => await this.prisma.$disconnect())
-      return response
+      .findMany()
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }

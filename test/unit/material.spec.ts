@@ -1,10 +1,13 @@
-
 import { describe, it, expect } from 'vitest'
 import { randomUUID } from 'node:crypto'
 import { PrismaService } from 'prisma/prisma.service'
 import { CreateMaterialService } from 'src/services/material/create.service'
 import { FindOneMaterialService } from 'src/services/material/find-one.service'
-import { DeleteMaterial, FindOneMaterial, UpdateMaterial } from 'src/types/material'
+import {
+  DeleteMaterial,
+  FindOneMaterial,
+  UpdateMaterial,
+} from 'src/types/material'
 import { RetrieveMaterialService } from 'src/services/material/retrieve.service'
 import { UpdateMaterialService } from 'src/services/material/update.service'
 import { DeleteMaterialService } from 'src/services/material/delete.service'
@@ -30,8 +33,8 @@ describe('Material service test switch', () => {
 
   it(' should find one material if exists', async () => {
     const findOneMaterialService = new FindOneMaterialService(prisma)
-    const material: FindOneMaterial = { 
-      code_material: '1'
+    const material: FindOneMaterial = {
+      code_material: '1',
     }
     const response = await findOneMaterialService.findOne(material)
     expect(response).toHaveProperty('code_material')
@@ -46,16 +49,16 @@ describe('Material service test switch', () => {
   it(' should update a material if exists', async () => {
     const findOneMaterialService = new FindOneMaterialService(prisma)
     const updateMaterialService = new UpdateMaterialService(prisma)
-    const material: FindOneMaterial = { 
-      code_material: '1'
+    const material: FindOneMaterial = {
+      code_material: '1',
     }
     const exisitingMaterial = await findOneMaterialService.findOne(material)
     const updateMaterial: UpdateMaterial = {
-      amount: exisitingMaterial.amount = 2,
+      amount: (exisitingMaterial.amount = 2),
       batch: exisitingMaterial.batch,
       code_material: exisitingMaterial.code_material,
       description: exisitingMaterial.description,
-      shelf_life: exisitingMaterial.shelf_life
+      shelf_life: exisitingMaterial.shelf_life,
     }
     const response = await updateMaterialService.update(updateMaterial)
     expect(response).toHaveProperty('code_material')
@@ -63,8 +66,8 @@ describe('Material service test switch', () => {
 
   it(' should delete a existing material if exists', async () => {
     const deleteMaterialService = new DeleteMaterialService(prisma)
-    const material: DeleteMaterial = { 
-      code_material: '1'
+    const material: DeleteMaterial = {
+      code_material: '1',
     }
     const response = await deleteMaterialService.delete(material)
     expect(response).toHaveProperty('code_material')

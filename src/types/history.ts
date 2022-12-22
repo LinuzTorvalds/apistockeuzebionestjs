@@ -1,5 +1,5 @@
 export class CreateHistory {
-  code_material: string   
+  code_material: string
   description: string
   batch: string
   shelf_life: Date
@@ -21,7 +21,7 @@ export class FindOneHistory {
 }
 
 export class UpdateHistory {
-  code_material: string   
+  code_material: string
   description: string
   batch: string
   shelf_life: Date
@@ -31,7 +31,7 @@ export class UpdateHistory {
 }
 
 export class FindByDateHistoryResponse {
-  code_material: string   
+  code_material: string
   description: string
   batch: string
   shelf_life: Date

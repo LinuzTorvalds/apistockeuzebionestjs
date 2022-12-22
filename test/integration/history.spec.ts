@@ -1,4 +1,3 @@
-
 import { describe, it, expect } from 'vitest'
 import request from 'supertest'
 import { PrismaService } from 'prisma/prisma.service'
@@ -62,7 +61,7 @@ describe('History controller test switch', () => {
     const exisitingHistoryArray = await retrieveHistoryService.retrieve()
     const findOneHistoryService = new FindOneHistoryService(prisma)
     const history: FindOneHistory = {
-      code_pk: exisitingHistoryArray[0].code_pk
+      code_pk: exisitingHistoryArray[0].code_pk,
     }
     const exisitingHistory = await findOneHistoryService.findOne(history)
     exisitingHistory.quantity_used = 10
@@ -75,8 +74,7 @@ describe('History controller test switch', () => {
 
   it(' should delete a existing history if exists', async () => {
     const retrieveHistoryService = new RetrieveHistoryService(prisma)
-    const exisitingHistoryArray =
-      await retrieveHistoryService.retrieve()
+    const exisitingHistoryArray = await retrieveHistoryService.retrieve()
     const response = await request(app).post('/history/delete').send({
       code_pk: exisitingHistoryArray[0].code_pk,
     })

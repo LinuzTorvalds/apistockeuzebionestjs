@@ -6,13 +6,13 @@ export class CreateMaterial {
 
   @IsNotEmpty()
   description: string
-  
+
   @IsNotEmpty()
   batch: string
 
   @IsNotEmpty()
   shelf_life: Date
-  
+
   @IsNotEmpty()
   amount: number
 }
@@ -36,7 +36,7 @@ export class UpdateMaterial {
 
   @IsNotEmpty()
   batch: string
-  
+
   @IsNotEmpty()
   shelf_life: Date
 

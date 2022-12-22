@@ -10,7 +10,13 @@ import { UpdateMaterialService } from 'src/services/material/update.service'
 @Module({
   imports: [],
   controllers: [MaterialController],
-  providers: [PrismaService, CreateMaterialService, DeleteMaterialService, 
-    FindOneMaterialService, RetrieveMaterialService, UpdateMaterialService]
+  providers: [
+    PrismaService,
+    CreateMaterialService,
+    DeleteMaterialService,
+    FindOneMaterialService,
+    RetrieveMaterialService,
+    UpdateMaterialService,
+  ],
 })
 export class MaterialModule {}

@@ -12,7 +12,8 @@ export class DeleteHistoryService {
         where: {
           code_pk: history.code_pk,
         },
-      }).finally(async () => await this.prisma.$disconnect())
-      return response
+      })
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }

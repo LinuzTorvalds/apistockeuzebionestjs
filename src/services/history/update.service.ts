@@ -18,9 +18,10 @@ export class UpdateHistoryService {
           date_of_use: history.date_of_use,
         },
         where: {
-          code_pk: history.code_pk
-        }
-      }).finally(async () => await this.prisma.$disconnect())
-      return response
+          code_pk: history.code_pk,
+        },
+      })
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }

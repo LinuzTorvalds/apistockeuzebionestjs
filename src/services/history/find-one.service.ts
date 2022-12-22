@@ -8,11 +8,12 @@ export class FindOneHistoryService {
 
   async findOne(history: FindOneHistory) {
     const response = await this.prisma.history
-    .findFirst({
-      where: { 
-        code_pk: history.code_pk
-      }
-    }).finally(async () => await this.prisma.$disconnect())
+      .findFirst({
+        where: {
+          code_pk: history.code_pk,
+        },
+      })
+      .finally(async () => await this.prisma.$disconnect())
     return response
   }
 }

@@ -5,7 +5,12 @@ import { FindByDateHistoryService } from 'src/services/history/find-by-date.serv
 import { FindOneHistoryService } from 'src/services/history/find-one.service'
 import { RetrieveHistoryService } from 'src/services/history/retrieve.service'
 import { UpdateHistoryService } from 'src/services/history/update.service'
-import { DeleteHistory, FindByDateHistory, FindOneHistory, UpdateHistory } from 'src/types/history'
+import {
+  DeleteHistory,
+  FindByDateHistory,
+  FindOneHistory,
+  UpdateHistory,
+} from 'src/types/history'
 import { describe, it, expect } from 'vitest'
 
 const prisma = new PrismaService()
@@ -39,7 +44,7 @@ describe('History service test switch', () => {
     const exisitingHistoryArray = await retrieveHistoryService.retrieve()
     const findOneHistoryService = new FindOneHistoryService(prisma)
     const history: FindOneHistory = {
-      code_pk: exisitingHistoryArray[0].code_pk
+      code_pk: exisitingHistoryArray[0].code_pk,
     }
     const response = await findOneHistoryService.findOne(history)
     expect(response).toHaveProperty('description')
@@ -53,7 +58,7 @@ describe('History service test switch', () => {
     end_date.setDate(end_date.getDate() + 10)
     const history: FindByDateHistory = {
       start_date: start_date,
-      end_date: end_date
+      end_date: end_date,
     }
     const response = await findByDateHistoryService.findByDate(history)
     expect(response.length).toBeGreaterThan(0)
@@ -64,8 +69,8 @@ describe('History service test switch', () => {
     const exisitingHistoryArray = await retrieveHistoryService.retrieve()
     const findOneHistoryService = new FindOneHistoryService(prisma)
     const updateHistoryService = new UpdateHistoryService(prisma)
-    const findOne: FindOneHistory = { 
-      code_pk: exisitingHistoryArray[0].code_pk
+    const findOne: FindOneHistory = {
+      code_pk: exisitingHistoryArray[0].code_pk,
     }
     const exisitingHistory = await findOneHistoryService.findOne(findOne)
     const history: UpdateHistory = {
@@ -74,8 +79,8 @@ describe('History service test switch', () => {
       code_pk: exisitingHistory.code_pk,
       date_of_use: exisitingHistory.date_of_use,
       description: exisitingHistory.description,
-      quantity_used: exisitingHistory.quantity_used = 2,
-      shelf_life: exisitingHistory.shelf_life
+      quantity_used: (exisitingHistory.quantity_used = 2),
+      shelf_life: exisitingHistory.shelf_life,
     }
     const response = await updateHistoryService.update(history)
     expect(response).toHaveProperty('description')
@@ -86,7 +91,7 @@ describe('History service test switch', () => {
     const exisitingHistoryArray = await retrieveHistoryService.retrieve()
     const deleteHistoryService = new DeleteHistoryService(prisma)
     const history: DeleteHistory = {
-      code_pk: exisitingHistoryArray[0].code_pk
+      code_pk: exisitingHistoryArray[0].code_pk,
     }
     const response = await deleteHistoryService.delete(history)
     expect(response).toHaveProperty('description')

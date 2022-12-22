@@ -12,7 +12,8 @@ export class FindOneMaterialService {
         where: {
           code_material: material.code_material,
         },
-      }).finally(async () => await this.prisma.$disconnect())
-      return materialFind
+      })
+      .finally(async () => await this.prisma.$disconnect())
+    return materialFind
   }
 }

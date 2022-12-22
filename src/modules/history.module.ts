@@ -11,7 +11,14 @@ import { UpdateHistoryService } from 'src/services/history/update.service'
 @Module({
   imports: [],
   controllers: [HistoryController],
-  providers: [PrismaService, CreateHistoryService, DeleteHistoryService, FindByDateHistoryService,
-    FindOneHistoryService, RetrieveHistoryService, UpdateHistoryService]
+  providers: [
+    PrismaService,
+    CreateHistoryService,
+    DeleteHistoryService,
+    FindByDateHistoryService,
+    FindOneHistoryService,
+    RetrieveHistoryService,
+    UpdateHistoryService,
+  ],
 })
 export class HistoryModule {}

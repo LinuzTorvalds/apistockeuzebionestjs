@@ -4,7 +4,12 @@ import { DeleteMaterialService } from 'src/services/material/delete.service'
 import { FindOneMaterialService } from 'src/services/material/find-one.service'
 import { RetrieveMaterialService } from 'src/services/material/retrieve.service'
 import { UpdateMaterialService } from 'src/services/material/update.service'
-import { CreateMaterial, DeleteMaterial, FindOneMaterial, UpdateMaterial } from 'src/types/material'
+import {
+  CreateMaterial,
+  DeleteMaterial,
+  FindOneMaterial,
+  UpdateMaterial,
+} from 'src/types/material'
 
 @Controller('materials')
 export class MaterialController {
@@ -13,8 +18,8 @@ export class MaterialController {
     private readonly deleteMaterialServive: DeleteMaterialService,
     private readonly findOneMaterialServive: FindOneMaterialService,
     private readonly retrieveMaterialServive: RetrieveMaterialService,
-    private readonly updateMaterialSerive: UpdateMaterialService,
-    ) {}
+    private readonly updateMaterialSerive: UpdateMaterialService
+  ) {}
 
   @Get('/')
   homeMaterials(): string {

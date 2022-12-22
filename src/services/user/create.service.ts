@@ -19,15 +19,16 @@ export class CreateUserService {
           token: randomUUID(),
           code_pk: randomUUID(),
         },
-      }).finally(async () => await this.prisma.$disconnect())
+      })
+      .finally(async () => await this.prisma.$disconnect())
 
-      const userCreate: UserCreated = {
-        login: response.login,
-        name: response.name,
-        token: response.token,
-        code_pk: response.code_pk,
-      }
-      
-      return userCreate
+    const userCreate: UserCreated = {
+      login: response.login,
+      name: response.name,
+      token: response.token,
+      code_pk: response.code_pk,
+    }
+
+    return userCreate
   }
 }

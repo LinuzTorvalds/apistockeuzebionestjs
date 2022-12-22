@@ -12,7 +12,15 @@ import { UpdateUserService } from 'src/services/user/update.service'
 @Module({
   imports: [],
   controllers: [UserController],
-  providers: [PrismaService, AuthUserService, AuthTokenUserService, CreateUserService,
-  DeleteUserService, FindOneUserService, RetrieveUserService, UpdateUserService]
+  providers: [
+    PrismaService,
+    AuthUserService,
+    AuthTokenUserService,
+    CreateUserService,
+    DeleteUserService,
+    FindOneUserService,
+    RetrieveUserService,
+    UpdateUserService,
+  ],
 })
 export class UserModule {}

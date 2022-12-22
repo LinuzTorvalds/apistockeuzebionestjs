@@ -12,10 +12,10 @@ export class FindOneUserService {
         where: {
           login: user.login,
         },
-      }).finally(async () => await this.prisma.$disconnect())
+      })
+      .finally(async () => await this.prisma.$disconnect())
 
-      if (userFind) return userFind
-
-      else 'No user found'
+    if (userFind) return userFind
+    else 'No user found'
   }
 }

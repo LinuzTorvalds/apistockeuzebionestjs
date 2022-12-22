@@ -19,7 +19,8 @@ export class UpdateMaterialService {
         where: {
           code_material: material.code_material,
         },
-      }).finally(async () => await this.prisma.$disconnect())
-      return response
+      })
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }

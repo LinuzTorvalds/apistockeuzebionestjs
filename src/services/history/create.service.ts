@@ -19,7 +19,8 @@ export class CreateHistoryService {
           date_of_use: history.date_of_use,
           code_pk: randomUUID(),
         },
-      }).finally(async () => await this.prisma.$disconnect())
-      return response
+      })
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }

@@ -20,7 +20,7 @@ export class UpdateUser {
 
   @IsNotEmpty()
   password: string
-  
+
   token: string
 
   @IsNotEmpty()

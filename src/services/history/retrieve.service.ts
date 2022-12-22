@@ -7,7 +7,8 @@ export class RetrieveHistoryService {
 
   async retrieve() {
     const response = await this.prisma.history
-    .findMany().finally(async () => await this.prisma.$disconnect())
+      .findMany()
+      .finally(async () => await this.prisma.$disconnect())
     return response
   }
 }

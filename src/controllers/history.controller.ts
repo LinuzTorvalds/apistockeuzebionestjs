@@ -5,7 +5,13 @@ import { FindByDateHistoryService } from 'src/services/history/find-by-date.serv
 import { FindOneHistoryService } from 'src/services/history/find-one.service'
 import { RetrieveHistoryService } from 'src/services/history/retrieve.service'
 import { UpdateHistoryService } from 'src/services/history/update.service'
-import { CreateHistory, DeleteHistory, FindByDateHistory, FindOneHistory, UpdateHistory } from 'src/types/history'
+import {
+  CreateHistory,
+  DeleteHistory,
+  FindByDateHistory,
+  FindOneHistory,
+  UpdateHistory,
+} from 'src/types/history'
 
 @Controller('historys')
 export class HistoryController {
@@ -15,8 +21,8 @@ export class HistoryController {
     private readonly findByDateHistoryServive: FindByDateHistoryService,
     private readonly findOneHistoryServive: FindOneHistoryService,
     private readonly retrieveHistoryServive: RetrieveHistoryService,
-    private readonly updateHistorySerive: UpdateHistoryService,
-    ) {}
+    private readonly updateHistorySerive: UpdateHistoryService
+  ) {}
 
   @Get('/')
   homeHistorys(): string {

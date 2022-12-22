@@ -1,6 +1,15 @@
 import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common'
 import { CreateUserService } from 'src/services/user/create.service'
-import { AuthTokenUser, CreateUser, DeleteUser, FindOneUser, UpdateUser, AuthUserRequest, UserCreated, UserUpdated } from 'src/types/user'
+import {
+  AuthTokenUser,
+  CreateUser,
+  DeleteUser,
+  FindOneUser,
+  UpdateUser,
+  AuthUserRequest,
+  UserCreated,
+  UserUpdated,
+} from 'src/types/user'
 import { AuthUserService } from '../services/user/auth.service'
 import { AuthTokenUserService } from '../services/user/auth-token.service'
 import { DeleteUserService } from 'src/services/user/delete.service'
@@ -10,15 +19,15 @@ import { UpdateUserService } from '../services/user/update.service'
 
 @Controller('users')
 export class UserController {
-  constructor(    
+  constructor(
     private readonly authUserService: AuthUserService,
     private readonly authTokenUserService: AuthTokenUserService,
     private readonly createUserService: CreateUserService,
     private readonly deleteUserService: DeleteUserService,
     private readonly findOneUserService: FindOneUserService,
     private readonly retrieveUserService: RetrieveUserService,
-    private readonly updateUserService: UpdateUserService,
-    ) {}
+    private readonly updateUserService: UpdateUserService
+  ) {}
 
   @Get('/')
   homeUsers(): string {

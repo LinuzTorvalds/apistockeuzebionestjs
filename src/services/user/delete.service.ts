@@ -7,11 +7,13 @@ export class DeleteUserService {
   constructor(private readonly prisma: PrismaService) {}
 
   async delete(user: DeleteUser) {
-    const response = await this.prisma.user.delete({
-      where: {
-        code_pk: user.code_pk
-      }
-    }).finally(async () => await this.prisma.$disconnect())
+    const response = await this.prisma.user
+      .delete({
+        where: {
+          code_pk: user.code_pk,
+        },
+      })
+      .finally(async () => await this.prisma.$disconnect())
 
     return response
   }

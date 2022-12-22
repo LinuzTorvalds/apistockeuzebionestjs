@@ -7,7 +7,8 @@ export class RetrieveMaterialService {
 
   async retrieve() {
     const response = await this.prisma.material
-      .findMany().finally(async () => await this.prisma.$disconnect())
-      return response
+      .findMany()
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }

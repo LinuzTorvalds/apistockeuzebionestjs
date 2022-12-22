@@ -18,7 +18,8 @@ export class CreateMaterialService {
           shelf_life: material.shelf_life,
           code_pk: randomUUID(),
         },
-      }).finally(async () => await this.prisma.$disconnect())
-      return response
+      })
+      .finally(async () => await this.prisma.$disconnect())
+    return response
   }
 }
